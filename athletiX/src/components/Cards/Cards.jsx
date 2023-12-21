@@ -21,7 +21,7 @@ const Cards = () => {
         <Pagination itemsPerPage={itemsPerPage} items={items} paginado={paginado} currentPage={currentPage}/>
     <div className="flex flex-wrap">
       {currentItems.map((item, index)=>{return <Card 
-      id={index} 
+      id={item.id} 
       nombre={item.nombre}
       precio={item.precio}
       foto={item.foto}/>})}

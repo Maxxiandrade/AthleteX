@@ -18,7 +18,7 @@ const Detail = () => {
       {
         item.map(item=>{return(
             <>
-            <img src={item.foto} alt="item foto" className='size-1/3'  />
+            <img src={item.foto} alt="item foto" className='size-1/3 '  />
             <h1 className='p-5'>{item.nombre}</h1>
             <br />
             <h2>{item.marca}</h2>
