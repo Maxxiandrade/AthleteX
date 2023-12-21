@@ -15,7 +15,12 @@ const Filters = () => {
       <label>
         <input type="checkbox" value="adidas" /> Adidas
       </label>
-      {/* Agrega más marcas aquí según sea necesario */}
+      <label>
+        <input type="checkbox" value="Wilson" /> Wilson
+      </label>
+      <label>
+        <input type="checkbox" value="G-Fitness" /> G-Fitness
+      </label>
     </>
   );
 
@@ -27,7 +32,12 @@ const Filters = () => {
       <label>
         <input type="checkbox" value="basketball" /> Basketball
       </label>
-      {/* Agrega más deportes aquí según sea necesario */}
+      <label>
+        <input type="checkbox" value="Tenis" /> Tenis
+      </label>
+      <label>
+        <input type="checkbox" value="Gim" /> Gim
+      </label>
     </>
   );
 

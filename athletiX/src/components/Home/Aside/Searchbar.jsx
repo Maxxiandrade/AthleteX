@@ -2,7 +2,10 @@ import React from 'react'
 
 const Searchbar = () => {
   return (
-            <input type="text" className='' />
+    <>
+            <h2 className=' md:block hidden'> Search</h2>
+            <input type="text" className=' md:block hidden' />
+    </>
   )
 }
 

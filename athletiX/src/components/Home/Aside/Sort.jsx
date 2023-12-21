@@ -22,10 +22,11 @@ const Sort = () => {
       {showOptions && (
         <div className="border border-gray-300 p-2 mt-2">
           <div onClick={() => handleSort('price-high-to-low')} className="cursor-pointer">
-            Price - High to Low
+          <input type="checkbox" value="Tenis" /> Price-High to low
+          
           </div>
           <div onClick={() => handleSort('price-low-to-high')} className="cursor-pointer">
-            Price - Low to High
+          <input type="checkbox" value="Tenis" /> Price-Low to High
           </div>
           {/* Agrega más opciones de ordenamiento según sea necesario */}
         </div>
