@@ -5,9 +5,9 @@ const Card = ({ id, nombre, precio, foto }) => {
     return (
         <>
         <Link to={`/article/${id}`}>
-        <div className="px-5 py-5  hover:scale-110 items-center">
+        <div className="px-5 py-5  hover:scale-110 duration-200 items-center">
             <p className='font-semibold'>{nombre}</p>
-            <img className="size-48 rounded-full shadow-2xl object-cover" src={foto}></img>
+            <img className="size-48 rounded-full shadow-2xl object-cover" src={foto?.[0]}></img>
             <h3 className='font-semibold'>{precio}</h3>
             <Link to={`/pucharse/${id}`}>
             <button className='hover:scale-110'>
