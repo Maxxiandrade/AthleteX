@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { brandFilters, sportFilters, clearFilters } from '../../../redux/actions/actions';
+import { brandFilters, sportFilters, clearFilters, movePage } from '../../../redux/actions/actions';
 import { useDispatch } from 'react-redux';
 import { HiChevronDown, HiChevronUp } from "react-icons/hi2";
 
@@ -32,6 +32,7 @@ const Filters = () => {
 
 
   const handleBrandFilter=(e)=>{
+    dispatch(movePage(1))
     dispatch(clearFilters())
     setSelectedBrand(null)
     const brand = e.target.value
@@ -41,6 +42,7 @@ const Filters = () => {
   }
 
   const handleSportFilter=(e)=>{
+    dispatch(movePage(1))
     dispatch(clearFilters())
     const sport = e.target.value
     dispatch(sportFilters(sport))

@@ -4,18 +4,19 @@ import React from 'react';
 import { useState } from "react";
 import Card from "./Card";
 import { useSelector } from "react-redux";
-
+import { useDispatch } from "react-redux";
+import { movePage } from "../../redux/actions/actions";
 
 const Cards = () => {
-
+  const dispatch = useDispatch()
   const itemList = useSelector(state=>state.items)
-  const [currentPage, setCurrentPage] = useState(1)
+  const currentPage = useSelector(state=>state.currentPage)
   const [itemsPerPage, setItemsPerPage] = useState(21)
 
   const lastItemIndex = currentPage * itemsPerPage
   const firstItemIndex = lastItemIndex - itemsPerPage
   const currentItems = itemList.slice(firstItemIndex, lastItemIndex)
-  const paginado = (pagenumber) =>{return setCurrentPage(pagenumber)}
+  const paginado = (pagenumber) =>{dispatch(movePage(pagenumber))}
 
   return (
     <>

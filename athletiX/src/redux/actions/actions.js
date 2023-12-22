@@ -1,4 +1,4 @@
-import { GET_ITEMS, SORT, FILTERS_BRAND, FILTERS_SPORT, ADD_TO_CART, REMOVE_FROM_CART, CLEAR_FILTERS } from "../action-types/action-types"
+import { GET_ITEMS, SORT, FILTERS_BRAND, FILTERS_SPORT, ADD_TO_CART, REMOVE_FROM_CART, CLEAR_FILTERS, MOVE_PAGE } from "../action-types/action-types"
 
 
 export const getItems = (items)=>(dispatch)=>{
@@ -52,6 +52,14 @@ export const addToCart = (item)=>(dispatch)=>{
 export const removeFromCart = (item)=>(dispatch)=>{
     try {
         dispatch({type: REMOVE_FROM_CART, payload:item})
+    } catch (error) {
+        throw Error(error)
+    }
+}
+
+export const movePage = (pagenumber)=>(dispatch)=>{
+    try {
+        dispatch({type:MOVE_PAGE, payload:pagenumber})
     } catch (error) {
         throw Error(error)
     }
