@@ -3,7 +3,7 @@ const articulos = [
         id: 0,
         nombre: 'Pelota Wilson',
         marca: 'Wilson',
-        precio: 49.99,
+        precio: 29.99,
         deporte: 'futbol',
         especificaciones: 'lore ipsum',
         foto: ['https://showsport.vtexassets.com/arquivos/ids/774996-800-auto?v=637792532793800000&width=800&height=auto&aspect=true']
@@ -37,9 +37,9 @@ const articulos = [
     },
     {
         id: 4,
-        nombre: 'Caja de pelotas ',
+        nombre: 'Caja de pelotas x3',
         marca: 'wilson',
-        precio: 19.99,
+        precio: 9.99,
         deporte: 'tenis',
         especificaciones: 'lore ipsum',
         foto: ['https://d28hi93gr697ol.cloudfront.net/c82a1a97-fbba-3d63/img/Producto/08452ea3-6b92-4005-6f5d-e46f3dc26efe/Tubo-2-6536f8fa7f8fc.jpg', 'https://http2.mlstatic.com/D_NQ_NP_880616-MLA41893047565_052020-O.webp']
@@ -49,7 +49,7 @@ const articulos = [
         id: 5,
         nombre: 'Guantes de arquero ',
         marca: 'DRB',
-        precio: 39.99,
+        precio: 29.99,
         deporte: 'futbol',
         especificaciones: 'lore ipsum',
         foto: ['https://http2.mlstatic.com/D_NQ_NP_673128-MLA54950094661_042023-O.webp']
@@ -59,7 +59,7 @@ const articulos = [
         id: 6,
         nombre: 'Guantes de arquero ',
         marca: 'DRB',
-        precio: 29.99,
+        precio: 19.99,
         deporte: 'futbol',
         foto: ['https://www.linea4deportes.com.ar/4310-thickbox_default/guante-arquero-drb-feline-22.jpg']
         
@@ -118,7 +118,7 @@ const articulos = [
         id: 12,
         nombre: 'Colchoneta ',
         marca: 'G-Fitness',
-        precio: 24.99,
+        precio: 9.99,
         deporte: 'Gim',
         foto: ['https://tienda.gfitness.com.ar/web/image/145821/image%20(1).jpg?access_token=56cca94f-9bb4-47d1-9f9a-3e82ac25928e']
     }
@@ -145,14 +145,14 @@ const articulos = [
         id: 15,
         nombre: 'Cono tortuga x10',
         marca: 'drb',
-        precio: 9.99,
+        precio: 4.99,
         deporte: 'Gim',
         foto: ['https://borabikes.com.ar/62959-large_default/cono-tortuga-entrenamiento-flexible-irrompible-pvc-drb-x-10u.jpg']
     }
     ,
     {
         id: 16,
-        nombre: 'Pelota Padel ',
+        nombre: 'Pelota Padel x3 ',
         marca: 'Wilson',
         precio: 9.99,
         deporte: 'Padel',

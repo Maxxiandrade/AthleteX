@@ -22,7 +22,7 @@ const reducer = (state = initialState, action) => {
     case FILTERS_BRAND:
       const brand = action.payload;
       const brandFilterItems = state.items.filter(
-        (item) => item.marca == brand
+        (item) => item.marca.toLowerCase() == brand.toLowerCase()
       );
       return {
         ...state,
@@ -31,7 +31,7 @@ const reducer = (state = initialState, action) => {
     case FILTERS_SPORT:
       const sport = action.payload;
       const sportFilterItems = state.items.filter(
-        (item) => item.deporte == sport
+        (item) => item.deporte.toLowerCase() == sport.toLowerCase()
       );
       return {
         ...state,

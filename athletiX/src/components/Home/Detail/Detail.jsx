@@ -6,6 +6,7 @@ import carrito from "../../../assets/carrito.svg"
 import { Link } from 'react-router-dom'
 import { addToCart } from '../../../redux/actions/actions'
 import { useDispatch, useSelector } from 'react-redux'
+import Swal from 'sweetalert2'
 
 const Detail = () => {
     const dispatch = useDispatch()
@@ -15,30 +16,39 @@ const Detail = () => {
     console.log(item);
 
     const handleAddToCart = (id)=>{
+      Swal.fire({
+        title: 'Added succesfully!',
+        showConfirmButton:true
+      })
       dispatch(addToCart(id))
     }
 
   return (
     <>
-        <Navbar/>
-    <div className='flex justify-start items-center text-4xl py-10'>
-      {
-        item.map(item=>{return(
-            <>
-            <img src={item.foto[0]} alt="item foto" className='size-1/3 rounded-full'  />
-            <h1 className='p-5'>{item.nombre}</h1>
-            <br />
+  <Navbar/>
+  <div className='flex items-center text-4xl py-10'>
+    {item.map(item => {
+      return (
+        <div className="flex">
+          <img src={item.foto[0]} alt="item foto" className='size-96 rounded-full ' />
+          <div className="ml-5">
+            <h1>{item.nombre}</h1>
             <h2>{item.marca}</h2>
+            <br />
             <p>{item.especificaciones}</p>
-            <button className='hover:scale-110'>
-            <img src={carrito} alt="" className='size-10' onClick={() => handleAddToCart(item.id)}/>
-            </button>
-            <p>{item.precio}</p>
-            </>
-        )})
-      }
-    </div>
-    </>
+            <br />
+            <div className="flex items-center">
+              <p className="ml-3">Price: ${item.precio}</p>
+              <button className='hover:scale-110'>
+                <img src={carrito} alt="" className='size-10' onClick={() => handleAddToCart(item.id)} />
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+</>
   )
 }
 

@@ -29,6 +29,7 @@ const Filters = () => {
   };
 
   const handleBrandFilter=(e)=>{
+    dispatch(clearFilters())
     setSelectedBrand(null)
     const brand = e.target.value
     setSelectedBrand(brand);
@@ -37,6 +38,7 @@ const Filters = () => {
   }
 
   const handleSportFilter=(e)=>{
+    dispatch(clearFilters())
     const sport = e.target.value
     dispatch(sportFilters(sport))
     setSelectedSport(sport);
@@ -61,16 +63,20 @@ const Filters = () => {
         <input type="radio" value="nike" onChange={handleBrandFilter} checked={selectedBrand === 'nike'} /> Nike
       </label>
       <br />
-      <label>
+      <label className='cursor-pointer'>
         <input type="radio" value="adidas" onChange={handleBrandFilter} checked={selectedBrand === 'adidas'}/> Adidas
       </label>
       <br />
-      <label>
+      <label className='cursor-pointer'>
         <input type="radio" value="Wilson" onChange={handleBrandFilter} checked={selectedBrand === 'Wilson'}/> Wilson
       </label>
       <br />
-      <label>
+      <label className='cursor-pointer'>
         <input type="radio" value="G-Fitness" onChange={handleBrandFilter} checked={selectedBrand === 'G-Fitness'}/> G-Fitness
+      </label>
+      <br />
+      <label className='cursor-pointer'>
+        <input type="radio" value="DRB" onChange={handleBrandFilter} checked={selectedBrand === 'DRB'}/> DRB
       </label>
     </div>
     </>
@@ -83,19 +89,19 @@ const Filters = () => {
         <input type="radio" value="futbol" onChange={handleSportFilter} checked={selectedSport === 'futbol'} /> Soccer
       </label>
       <br />
-      <label>
+      <label className='cursor-pointer'>
         <input type="radio" value="basketball" onChange={handleSportFilter} checked={selectedSport === 'basketball'}/> Basketball
       </label>
       <br />
-      <label>
+      <label className='cursor-pointer'>
         <input type="radio" value="Tenis" onChange={handleSportFilter} checked={selectedSport === 'Tenis'}/> Tenis
       </label>
       <br />
-      <label>
+      <label className='cursor-pointer'>
         <input type="radio" value="Gim" onChange={handleSportFilter} checked={selectedSport === 'Gim'}/> Gim
       </label>
       <br />
-      <label>
+      <label className='cursor-pointer'>
         <input type="radio" value="Contact" onChange={handleSportFilter} checked={selectedSport === 'Contact'}/> Contact 
       </label>
     </div>
@@ -105,7 +111,7 @@ const Filters = () => {
   return (
     <>
     <div>
-      <div onClick={toggleOptions} className='cursor-pointer '>Filter:</div>
+      <div onClick={toggleOptions} className='cursor-pointer '>Filters:</div>
       {showOptions && (
       <div>
         <div onClick={toggleBrands} className='cursor-pointer border border-gray-300'>Brands</div>
