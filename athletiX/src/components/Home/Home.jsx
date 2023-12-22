@@ -4,6 +4,7 @@ import Cards from "../Cards/Cards";
 import { useDispatch } from "react-redux";
 import items from "../Cards/items"
 import { getItems } from "../../redux/actions/actions";
+import Footer from "./Footer/Footer";
 const Home = () => {
     const dispatch = useDispatch();
     dispatch(getItems(items))
@@ -11,11 +12,11 @@ const Home = () => {
     <>
 
     <Navbar/>
-    <div className="flex">
+    <div className="flex h-screen">
    <Aside/>
    <Cards/>
     </div>
-   
+   <Footer/>
    </>
   )
 }

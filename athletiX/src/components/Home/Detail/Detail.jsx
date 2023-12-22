@@ -1,14 +1,16 @@
 import React from 'react'
 import Navbar from '../Navbar/Navbar'
 import items from "../../Cards/items"
-import { useParams } from 'react-router-dom'
+import { redirect, useParams, useNavigate } from 'react-router-dom'
 import carrito from "../../../assets/carrito.svg"
 import { Link } from 'react-router-dom'
 import { addToCart } from '../../../redux/actions/actions'
 import { useDispatch, useSelector } from 'react-redux'
 import Swal from 'sweetalert2'
+import shopcart from "../../../assets/shopcart.svg"
 
 const Detail = () => {
+  const navigate = useNavigate()
     const dispatch = useDispatch()
     const {id} = useParams()
     const items = useSelector((state)=>state.allItems)
@@ -17,10 +19,22 @@ const Detail = () => {
 
     const handleAddToCart = (id)=>{
       Swal.fire({
-        title: 'Added succesfully!',
-        showConfirmButton:true
+        title: 'Added to your cart succesfully!',
+        showConfirmButton:true,
+        confirmButtonText:'Ok!',
+        confirmButtonColor:'#a78bfa',
+        showDenyButton:true,
+        denyButtonColor:'#a78bfa',
+        denyButtonText: '<img src="' + shopcart + '" class="h-6">',
+        showCancelButton: true
+      }).then((result)=>{
+        if(result.isConfirmed){dispatch(addToCart(id))}
+        if(result.isDenied){
+          dispatch(addToCart(id))
+          navigate('/cart')
+        }
       })
-      dispatch(addToCart(id))
+      
     }
 
   return (
@@ -30,7 +44,7 @@ const Detail = () => {
     {item.map(item => {
       return (
         <div className="flex">
-          <img src={item.foto[0]} alt="item foto" className='size-96 rounded-full ' />
+          <img src={item.foto[0]} alt="item foto" className='size-96 rounded-full object-contain ' />
           <div className="ml-5">
             <h1>{item.nombre}</h1>
             <h2>{item.marca}</h2>

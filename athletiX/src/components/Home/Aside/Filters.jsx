@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { brandFilters, sportFilters, clearFilters } from '../../../redux/actions/actions';
 import { useDispatch } from 'react-redux';
 import { HiChevronDown, HiChevronUp } from "react-icons/hi2";
+
+
 const Filters = () => {
 
   const dispatch = useDispatch()
@@ -15,6 +17,8 @@ const Filters = () => {
 
   const toggleOptions = () => {
     setShowOptions((prev) => !prev);
+    setShowBrands(null)
+    setShowSports(null)
   };
 
   const toggleBrands = ()=>{
@@ -25,9 +29,7 @@ const Filters = () => {
     setShowSports((prev)=>!prev)
   }
 
-  const handleSelectChange = (e) => {
-    setSelectedOption(e.target.value);
-  };
+
 
   const handleBrandFilter=(e)=>{
     dispatch(clearFilters())
@@ -58,9 +60,9 @@ const Filters = () => {
   }
   const brandsOptions = (
     <>
-    <div className='cursor-pointer border  font-semibold'>
+    <div className='cursor-pointer border  font-normal'>
 
-      <label className='cursor-pointer border  font-medium'>
+      <label className='cursor-pointer border'>
         <input type="radio" value="nike" onChange={handleBrandFilter} checked={selectedBrand === 'nike'} /> Nike
       </label>
       <br /> 
@@ -85,7 +87,7 @@ const Filters = () => {
 
   const sportsOptions = (
     <>
-    <div className='cursor-pointer  font-semibold'>
+    <div className='cursor-pointer  font-normal'>
       <label className='cursor-pointer  '>
         <input type="radio" value="futbol" onChange={handleSportFilter} checked={selectedSport === 'futbol'} /> Soccer
       </label>
@@ -112,15 +114,15 @@ const Filters = () => {
   return (
     <>
     <div>
-    <div onClick={toggleOptions} className='cursor-pointer font-normal flex items-center border-b border-stone-400'>
+    <div onClick={toggleOptions} className='cursor-pointer font-medium flex items-center border-b border-stone-400'>
   Filters{showOptions ? <HiChevronUp /> : <HiChevronDown />}
 </div>
       {showOptions && (
       <div>
-        <div onClick={toggleBrands} className='cursor-pointer  font-normal flex items-center border-b border-stone-400'>Brands{showBrands ? <HiChevronUp /> : <HiChevronDown />}</div>
+        <div onClick={toggleBrands} className='cursor-pointer  font-medium flex items-center border-b border-stone-400'>Brands{showBrands ? <HiChevronUp /> : <HiChevronDown />}</div>
         {showBrands && brandsOptions}
         
-        <div onClick={toggleSports} className='cursor-pointer  font-normal flex items-center border-b border-stone-400'>Sports{showSports ? <HiChevronUp /> : <HiChevronDown />}</div>
+        <div onClick={toggleSports} className='cursor-pointer  font-medium flex items-center border-b border-stone-400'>Sports{showSports ? <HiChevronUp /> : <HiChevronDown />}</div>
         {showSports && sportsOptions}
         {showSports || showBrands ? <><p className='cursor-pointer' onClick={handleClear}>Clear filters</p></> : ''}
       </div>

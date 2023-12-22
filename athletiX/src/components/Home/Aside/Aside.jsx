@@ -3,13 +3,13 @@ import Filters from './Filters';
 import Searchbar from './Searchbar';
 import Sort from './Sort';
 
-const Aside = () => {
+const Aside = ({paginado}) => {
   return (
-    <aside className='bg-stone-200 flex flex-col justify-start items-center h-100 w-2/12 border-r border-stone-300 shadow-2xl shad'>
+    <aside className='bg-purple-50 flex flex-col justify-start items-center h-100 w-2/12 border-r border-stone-300 shadow-2xl shad'>
       <div className='flex flex-col juce items-center '>
       <Searchbar/>
       <hr />
-      <Filters/>
+      <Filters paginado={paginado}/>
       <hr />
       <Sort/>
       </div>

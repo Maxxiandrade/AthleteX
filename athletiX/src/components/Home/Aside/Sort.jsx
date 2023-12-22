@@ -20,7 +20,7 @@ const Sort = () => {
 
   return (
     <div>
-      <div onClick={toggleOptions} className="cursor-pointer border-b border-stone-400 flex items-center">
+      <div onClick={toggleOptions} className="cursor-pointer border-b border-stone-400 flex items-center font-medium">
         Sort {showOptions ? <HiChevronUp/> : <HiChevronDown/>}
       </div>
       {showOptions && (

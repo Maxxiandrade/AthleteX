@@ -3,10 +3,10 @@ import Navbar from '../Home/Navbar/Navbar'
 import { useDispatch, useSelector } from 'react-redux'
 import { removeFromCart } from '../../redux/actions/actions'
 import { Link } from 'react-router-dom'
-import style from './Pay.module.css'
+import style from './Cart.module.css'
 import cancel from '../../assets/cancel.svg'
 import shopcart from '../../assets/shopcart.svg'
-const Pay = () => {
+const Cart = () => {
   const dispatch = useDispatch()
   const cart = useSelector((state)=>state.cart)
  
@@ -38,10 +38,10 @@ const Pay = () => {
           </Link>
           </>
         )}
-        
-        {cart.length >0 ? <div className='bg-transparent border backdrop-blur-lg rounded-xl  p-6 flex justify-center items-center '>
+        <br />
+        {cart.length >0 ? <div className='bg-transparent border border-stone-200 backdrop-blur-lg rounded-xl  p-6 flex justify-center items-center '>
         {cart.map(item => (
-  <div key={item.id} className="flex flex-col items-center justify-center text-center">
+  <div key={item.id} className="flex flex-col items-center justify-center text-center hover:scale-95 transition duration-200">
     <div className="mb-2">
       <p className='font-semibold'>{item.precio}</p>
     </div>
@@ -65,9 +65,14 @@ const Pay = () => {
   </div>
 ))}
         </div> : ''}
+        <br />
+
+        {cart.length>0 ? <Link to='/pay'>
+    <button className='text-2xl bg-transparent border backdrop-blur-lg rounded-xl  p-6 flex justify-center items-center hover:scale-110 transition duration-200'>Pay</button>
+        </Link> : ''}
       </div>
     </>
   );
 }
 
-export default Pay
+export default Cart

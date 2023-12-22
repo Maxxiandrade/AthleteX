@@ -5,6 +5,7 @@ import { useState } from "react";
 import Card from "./Card";
 import { useSelector } from "react-redux";
 
+
 const Cards = () => {
 
   const itemList = useSelector(state=>state.items)
@@ -18,7 +19,7 @@ const Cards = () => {
 
   return (
     <>
-    <div className="flex">
+    <div className='flex'>
 
         <Pagination itemsPerPage={itemsPerPage} items={itemList} paginado={paginado} currentPage={currentPage}/>
     <div className="flex flex-wrap">
