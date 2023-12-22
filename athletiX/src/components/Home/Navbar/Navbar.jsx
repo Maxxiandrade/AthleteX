@@ -3,7 +3,12 @@ import athletix from "../../../assets/AthletiX.png"
 import logo from "../../../assets/athletix logo.png"
 import Dropdown from './Dropdown';
 import { Link } from 'react-router-dom';
+import items from '../../Cards/items'
+import CardBlog from "../../Carousel/CardBlog"
 const Navbar = () => {
+  
+  const carouselBlogs = [...items, ...items]
+
 
   return (
     <nav className='flex justify-center shadow-2xl bg-purple-50 border-b border-stone-300'>
@@ -15,10 +20,18 @@ const Navbar = () => {
         
       </div>
     </Link>
+  </div>
+  
+  <div className='container my-5'>
+    <div className='overflow-hidden w-full'>
+      <div className='flex whitespace-nowrap animate-scroll w-10 h-40'>
+    {carouselBlogs.map((item, index)=>(<CardBlog blog={item} key={index}/>))}
+      </div>
+    </div>
+  </div>
     <div>
       <Dropdown />
     </div>
-  </div>
 </nav>
   );
 }

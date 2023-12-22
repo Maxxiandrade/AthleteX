@@ -6,21 +6,20 @@ const Pagination = ({ itemsPerPage, items, paginado, currentPage }) => {
     }
     
     return (
-        <div className="pagination flex">
-          <nav>
-          <ul>
+      <div className="pagination flex">
+        <nav>
+          <ul className="flex">
             {pageNumbers.map(number => (
-                <li
-                  key={number}
-                  
-                >
-                  <a onClick={() => paginado(number)}>{number}</a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
-      );
+              <>
+              <li key={number} className="list-none m-3 bg-indigo-300 cursor-pointer rounded-full w-6 text-center h5 font-medium">
+                <a onClick={() => paginado(number)}>{number}</a>
+              </li>
+              </>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    );
   };
   
   export default Pagination;

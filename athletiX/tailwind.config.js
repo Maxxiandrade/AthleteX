@@ -6,8 +6,8 @@ export default {
   ],
   theme: {
     extend: {
-      backgroundImage:{
-        'athletix': "url('/assets/athletix.jpg')"
+      container:{
+        center:true
       }
     },
   },

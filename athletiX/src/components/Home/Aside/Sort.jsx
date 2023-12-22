@@ -21,7 +21,7 @@ const Sort = () => {
   return (
     <div>
       <div onClick={toggleOptions} className="cursor-pointer border-b border-stone-400 flex items-center font-medium">
-        Sort {showOptions ? <HiChevronUp/> : <HiChevronDown/>}
+        {showOptions ? <p className='text-indigo-600'>Sort</p> : <p>Sort</p>} {showOptions ? <HiChevronUp/> : <HiChevronDown/>}
       </div>
       {showOptions && (
         <div className="border border-gray-300 p-2 mt-2">

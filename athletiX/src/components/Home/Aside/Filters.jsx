@@ -7,15 +7,15 @@ import { HiChevronDown, HiChevronUp } from "react-icons/hi2";
 const Filters = () => {
 
   const dispatch = useDispatch()
-  const [selectedOption, setSelectedOption] = useState('');
   const [showOptions, setShowOptions] = useState(false);
   const [showBrands, setShowBrands] = useState(false)
   const [showSports, setShowSports] = useState(false)
   const [selectedBrand, setSelectedBrand] = useState(null);
   const [selectedSport, setSelectedSport] = useState(null);
-
+  const [isActive, setIsActive] = useState(null)
 
   const toggleOptions = () => {
+    setIsActive((prev)=>!prev)
     setShowOptions((prev) => !prev);
     setShowBrands(null)
     setShowSports(null)
@@ -117,16 +117,18 @@ const Filters = () => {
     <>
     <div>
     <div onClick={toggleOptions} className='cursor-pointer font-medium flex items-center border-b border-stone-400'>
-  Filters{showOptions ? <HiChevronUp /> : <HiChevronDown />}
+  {showOptions ? <p className='text-indigo-600'>Filters</p> : <p>Filters</p>}{showOptions ? <HiChevronUp /> : <HiChevronDown />}
 </div>
       {showOptions && (
       <div>
+
         <div onClick={toggleBrands} className='cursor-pointer  font-medium flex items-center border-b border-stone-400'>Brands{showBrands ? <HiChevronUp /> : <HiChevronDown />}</div>
         {showBrands && brandsOptions}
         
         <div onClick={toggleSports} className='cursor-pointer  font-medium flex items-center border-b border-stone-400'>Sports{showSports ? <HiChevronUp /> : <HiChevronDown />}</div>
         {showSports && sportsOptions}
         {showSports || showBrands ? <><p className='cursor-pointer' onClick={handleClear}>Clear filters</p></> : ''}
+        <br />
       </div>
       )}
     </div>

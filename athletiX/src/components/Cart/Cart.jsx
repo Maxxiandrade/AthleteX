@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import style from './Cart.module.css'
 import cancel from '../../assets/cancel.svg'
 import shopcart from '../../assets/shopcart.svg'
+import logo from '../../assets/athletix logo.png'
 const Cart = () => {
   const dispatch = useDispatch()
   const cart = useSelector((state)=>state.cart)
@@ -20,8 +21,9 @@ const Cart = () => {
 
   return (
     <>
-      <Navbar />
+      
       <div className={`${style.backgroundImage} flex flex-col items-center justify-center`}>
+       
         {cart.length ? (
           <h1 className='text-4xl bg-transparent border backdrop-blur-lg rounded-xl  p-6 flex justify-center items-center '>
             Your about to pay ${totalPrice} for {totalItems} item(s)
@@ -43,7 +45,7 @@ const Cart = () => {
         {cart.map(item => (
   <div key={item.id} className="flex flex-col items-center justify-center text-center hover:scale-95 transition duration-200">
     <div className="mb-2">
-      <p className='font-semibold'>{item.precio}</p>
+      <p className='font-semibold'>${item.precio}</p>
     </div>
     <div className="mb-2">
       <Link to={`/article/${item.id}`}>
@@ -67,9 +69,16 @@ const Cart = () => {
         </div> : ''}
         <br />
 
-        {cart.length>0 ? <Link to='/pay'>
-    <button className='text-2xl bg-transparent border backdrop-blur-lg rounded-xl  p-6 flex justify-center items-center hover:scale-110 transition duration-200'>Pay</button>
-        </Link> : ''}
+        {cart.length > 0 && (
+  <div className="flex justify-center">
+    <Link to='/home'>
+      <button className='text-2xl bg-transparent border backdrop-blur-lg rounded-xl p-6 flex justify-center items-center hover:scale-110 transition duration-200 mr-4'>Home</button>
+    </Link>
+    <Link to='/pay'>
+      <button className='text-2xl bg-transparent border backdrop-blur-lg rounded-xl p-6 flex justify-center items-center hover:scale-110 transition duration-200'>Pay</button>
+    </Link>
+  </div>
+)}
       </div>
     </>
   );

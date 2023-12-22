@@ -20,18 +20,23 @@ const Cards = () => {
 
   return (
     <>
-    <div className='flex'>
-
-        <Pagination itemsPerPage={itemsPerPage} items={itemList} paginado={paginado} currentPage={currentPage}/>
+      <div className="flex flex-col items-center">
+  <Pagination itemsPerPage={itemsPerPage} items={itemList} paginado={paginado} currentPage={currentPage}/>
+  
+  <div className="flex justify-center">
     <div className="flex flex-wrap">
-      {currentItems.map((item)=>{return <Card 
-      id={item.id} 
-      nombre={item.nombre}
-      precio={item.precio}
-      foto={item.foto}/>})}
+      {currentItems.map((item) => (
+        <Card 
+          key={item.id}
+          id={item.id} 
+          nombre={item.nombre}
+          precio={item.precio}
+          foto={item.foto}
+        />
+      ))}
     </div>
-      </div>
-    
+  </div>
+</div>
           </>
   );
 };

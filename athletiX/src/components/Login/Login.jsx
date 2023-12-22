@@ -16,27 +16,35 @@ const Login = () => {
   <br />
   <div className='mb-4'>
     <label htmlFor="email">Email:</label>
+    <br />
     <input 
       placeholder="example@example.com"
       type="text" 
       name="email" 
       id="email"
+      className="border border-black rounded-lg text-center"
     />
   </div>
   <div className='mb-4'>
     <label htmlFor="password">Password:</label>
+    <br />
     <input 
       placeholder="This field is obligatory*"
       type="password" 
       name="password" 
       id="password"
+      className="border border-black rounded-lg text-center"
     />
   </div>
-  <button type="submit" className="bg-cyan-300">Log in</button>
+  <button className="bg-transparent px-10 py-2 rounded-2xl border border-black hover:scale-105 transition duration-200">
+                Log in
+              </button>
   <br />
   <label htmlFor="">Don't have an account?</label>
   <Link to='/register'>
-    <button className='bg-cyan-300'>Register</button>
+  <button className="bg-transparent px-10 py-2 rounded-2xl border border-black hover:scale-105 transition duration-200">
+                Register
+              </button>
   </Link>
 </form>
       </div>

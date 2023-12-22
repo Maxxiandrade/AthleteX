@@ -13,7 +13,7 @@ const Home = () => {
 
     <Navbar/>
     <div className="flex h-screen">
-   <Aside/>
+   <Aside />
    <Cards/>
     </div>
    <Footer/>
