@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { sortItems } from '../../../redux/actions/actions';
 
 const Sort = () => {
+  const dispatch = useDispatch();
+  const [selectedOption, setSelectedOption] = useState(null);
   const [showOptions, setShowOptions] = useState(false);
 
   const toggleOptions = () => {
     setShowOptions((prev) => !prev);
   };
 
-  const handleSort = (criteria) => {
-    // Lógica para manejar el ordenamiento según el criterio seleccionado
-    console.log(`Ordenar por ${criteria}`);
-    // Aquí podrías realizar la lógica para ordenar los elementos
-    // según el criterio seleccionado (de mayor a menor precio, etc.)
+  const handleSort = (e) => {
+    const sort = e.target.value;
+    setSelectedOption(sort);
+    dispatch(sortItems(sort));
   };
 
   return (
@@ -21,14 +24,28 @@ const Sort = () => {
       </div>
       {showOptions && (
         <div className="border border-gray-300 p-2 mt-2">
-          <div onClick={() => handleSort('price-high-to-low')} className="cursor-pointer">
-          <input type="checkbox" value="Tenis" /> Price-High to low
-          
+          <div className="cursor-pointer">
+            <label>
+              <input
+                type="radio"
+                value="A"
+                checked={selectedOption === 'A'}
+                onChange={handleSort}
+              />{' '}
+              Price-High to low
+            </label>
           </div>
-          <div onClick={() => handleSort('price-low-to-high')} className="cursor-pointer">
-          <input type="checkbox" value="Tenis" /> Price-Low to High
+          <div className="cursor-pointer">
+            <label>
+              <input
+                type="radio"
+                value="B"
+                checked={selectedOption === 'B'}
+                onChange={handleSort}
+              />{' '}
+              Price-Low to High
+            </label>
           </div>
-          {/* Agrega más opciones de ordenamiento según sea necesario */}
         </div>
       )}
     </div>

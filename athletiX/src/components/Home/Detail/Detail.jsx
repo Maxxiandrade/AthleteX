@@ -4,13 +4,20 @@ import items from "../../Cards/items"
 import { useParams } from 'react-router-dom'
 import carrito from "../../../assets/carrito.svg"
 import { Link } from 'react-router-dom'
+import { addToCart } from '../../../redux/actions/actions'
+import { useDispatch, useSelector } from 'react-redux'
 
 const Detail = () => {
-    
-    const {id} = useParams() 
-  
+    const dispatch = useDispatch()
+    const {id} = useParams()
+    const items = useSelector((state)=>state.allItems)
     const item = items.filter((item)=>item.id == id)
     console.log(item);
+
+    const handleAddToCart = (id)=>{
+      dispatch(addToCart(id))
+    }
+
   return (
     <>
         <Navbar/>
@@ -23,11 +30,9 @@ const Detail = () => {
             <br />
             <h2>{item.marca}</h2>
             <p>{item.especificaciones}</p>
-            <Link to={`/pucharse/${item.id}`}>
             <button className='hover:scale-110'>
-            <img src={carrito} alt="" className='size-10'/>
+            <img src={carrito} alt="" className='size-10' onClick={() => handleAddToCart(item.id)}/>
             </button>
-            </Link>
             <p>{item.precio}</p>
             </>
         )})

@@ -20,7 +20,7 @@ const Dropdown = () => {
       </button>
       {isOpen && (
         <div className="bg-zinc-200 absolute top-16 flex flex-col items-center rounded-lg p-2 w-full border border-gray-500 ">
-            <Link to='/home'> 
+            <Link to='/pucharse'> 
             <img src={carrito} alt="carrito" className="h-8 cursor-pointer hover:scale-110 duration-100 items-center" />
             </Link>
             <hr
