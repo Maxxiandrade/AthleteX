@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { sortItems } from '../../../redux/actions/actions';
+import { HiChevronDown, HiChevronUp } from "react-icons/hi2";
 
 const Sort = () => {
   const dispatch = useDispatch();
@@ -19,8 +20,8 @@ const Sort = () => {
 
   return (
     <div>
-      <div onClick={toggleOptions} className="cursor-pointer">
-        Sort
+      <div onClick={toggleOptions} className="cursor-pointer border-b border-stone-400 flex items-center">
+        Sort {showOptions ? <HiChevronUp/> : <HiChevronDown/>}
       </div>
       {showOptions && (
         <div className="border border-gray-300 p-2 mt-2">

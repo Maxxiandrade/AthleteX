@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage:{
+        'athletix': "url('/assets/athletix.jpg')"
+      }
+    },
   },
   plugins: [],
 }

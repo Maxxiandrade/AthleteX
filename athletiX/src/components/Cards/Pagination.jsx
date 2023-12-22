@@ -6,7 +6,7 @@ const Pagination = ({ itemsPerPage, items, paginado, currentPage }) => {
     }
     
     return (
-        <div className="pagination">
+        <div className="pagination flex">
           <nav>
           <ul>
             {pageNumbers.map(number => (

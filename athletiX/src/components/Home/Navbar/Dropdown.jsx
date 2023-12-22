@@ -27,12 +27,16 @@ const Dropdown = () => {
             className="my-4 border-gray-600"
             style={{ width: "80%", margin: "20px auto" }}
           />
+          <Link to='/login'>
             <p className="cursor-pointer  hover:scale-110 duration-100 font-medium">Log in</p>
+          </Link>
             <hr
             className="my-4 border-gray-600"
             style={{ width: "80%", margin: "20px auto" }}
           />
+          <Link to='/contactus'>
             <p className="cursor-pointer  hover:scale-110 duration-100 font-medium juce py-1">Contact</p>
+          </Link>
         </div>
       )}
     </div>

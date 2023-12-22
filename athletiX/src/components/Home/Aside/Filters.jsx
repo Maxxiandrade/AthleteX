@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { brandFilters, sportFilters, clearFilters } from '../../../redux/actions/actions';
 import { useDispatch } from 'react-redux';
+import { HiChevronDown, HiChevronUp } from "react-icons/hi2";
 const Filters = () => {
 
   const dispatch = useDispatch()
@@ -57,17 +58,17 @@ const Filters = () => {
   }
   const brandsOptions = (
     <>
-    <div className='cursor-pointer border border-gray-300'>
+    <div className='cursor-pointer border  font-semibold'>
 
-      <label className='cursor-pointer border border-gray-300'>
+      <label className='cursor-pointer border  font-medium'>
         <input type="radio" value="nike" onChange={handleBrandFilter} checked={selectedBrand === 'nike'} /> Nike
       </label>
-      <br />
+      <br /> 
       <label className='cursor-pointer'>
         <input type="radio" value="adidas" onChange={handleBrandFilter} checked={selectedBrand === 'adidas'}/> Adidas
       </label>
       <br />
-      <label className='cursor-pointer'>
+      <label className='cursor-pointer '>
         <input type="radio" value="Wilson" onChange={handleBrandFilter} checked={selectedBrand === 'Wilson'}/> Wilson
       </label>
       <br />
@@ -84,8 +85,8 @@ const Filters = () => {
 
   const sportsOptions = (
     <>
-    <div className='cursor-pointer border border-gray-300'>
-      <label className='cursor-pointer border border-gray-300 '>
+    <div className='cursor-pointer  font-semibold'>
+      <label className='cursor-pointer  '>
         <input type="radio" value="futbol" onChange={handleSportFilter} checked={selectedSport === 'futbol'} /> Soccer
       </label>
       <br />
@@ -111,13 +112,15 @@ const Filters = () => {
   return (
     <>
     <div>
-      <div onClick={toggleOptions} className='cursor-pointer '>Filters:</div>
+    <div onClick={toggleOptions} className='cursor-pointer font-normal flex items-center border-b border-stone-400'>
+  Filters{showOptions ? <HiChevronUp /> : <HiChevronDown />}
+</div>
       {showOptions && (
       <div>
-        <div onClick={toggleBrands} className='cursor-pointer border border-gray-300'>Brands</div>
+        <div onClick={toggleBrands} className='cursor-pointer  font-normal flex items-center border-b border-stone-400'>Brands{showBrands ? <HiChevronUp /> : <HiChevronDown />}</div>
         {showBrands && brandsOptions}
         
-        <div onClick={toggleSports} className='cursor-pointer border border-gray-300'>Sports</div>
+        <div onClick={toggleSports} className='cursor-pointer  font-normal flex items-center border-b border-stone-400'>Sports{showSports ? <HiChevronUp /> : <HiChevronDown />}</div>
         {showSports && sportsOptions}
         {showSports || showBrands ? <><p className='cursor-pointer' onClick={handleClear}>Clear filters</p></> : ''}
       </div>
