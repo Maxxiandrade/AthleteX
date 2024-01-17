@@ -1,10 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import {AiOutlineCaretUp, AiOutlineCaretDown} from "react-icons/ai"
+import { MdOutlineAdminPanelSettings } from "react-icons/md";
 import menu from "../../../assets/menu.svg"
 import carrito from "../../../assets/carrito.svg"
 import { Link } from "react-router-dom";
-import { FiShoppingCart } from "react-icons/fi";
+import admin from "../../../assets/admin.svg"
 
 const Dropdown = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -37,6 +38,9 @@ const Dropdown = () => {
           />
           <Link to='/contactus'>
             <p className="cursor-pointer  hover:scale-110 duration-100 font-medium juce py-1 mb-4">Contact</p>
+          </Link>
+          <Link to='/admin'>
+            <img src={admin} alt="admin" className="h-7"/>
           </Link>
         </div>
       )}

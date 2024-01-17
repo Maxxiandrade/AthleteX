@@ -29,7 +29,7 @@ const Card = ({ id, nombre, precio, foto }) => {
         <div className="px-5 mt-4  hover:scale-90 duration-200 items-center my-3">
         <Link to={`/article/${id}`}>
             <p className='font-semibold'>{nombre}</p>
-            <img className="size-48 rounded-full shadow-2xl object-cover border border-zinc-300" src={foto?.[0]}></img>
+            <img className="size-48 rounded-full shadow-2xl object-cover border border-zinc-300" src={foto}></img>
             <h3 className='font-semibold'>{`$${precio}`}</h3>
         </Link>
             <button className='hover:scale-110' onClick={() => handleAddToCart(id)}>

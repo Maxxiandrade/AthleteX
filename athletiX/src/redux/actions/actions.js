@@ -1,9 +1,10 @@
-import { GET_ITEMS, SORT, FILTERS_BRAND, FILTERS_SPORT, ADD_TO_CART, REMOVE_FROM_CART, CLEAR_FILTERS, MOVE_PAGE } from "../action-types/action-types"
+import { ADD_ITEM, GET_ITEMS, SORT, FILTERS_BRAND, FILTERS_SPORT, ADD_TO_CART, REMOVE_FROM_CART, CLEAR_FILTERS, MOVE_PAGE } from "../action-types/action-types"
+import axios from 'axios';
 
-
-export const getItems = (items)=>(dispatch)=>{
+export const getItems = ()=>async(dispatch)=>{
     try {
-        dispatch({type: GET_ITEMS, payload: items})
+       const {data} = await axios.get('http://localhost:3001/items')
+        dispatch({type: GET_ITEMS, payload: data})
     } catch (error) {
         throw Error(error)
     }
@@ -60,6 +61,15 @@ export const removeFromCart = (item)=>(dispatch)=>{
 export const movePage = (pagenumber)=>(dispatch)=>{
     try {
         dispatch({type:MOVE_PAGE, payload:pagenumber})
+    } catch (error) {
+        throw Error(error)
+    }
+}
+
+export const addItem = (item)=>async()=>{
+    try {
+        console.log(item);
+        await axios.post('http://localhost:3001/additem', item)
     } catch (error) {
         throw Error(error)
     }

@@ -11,8 +11,9 @@ const Cart = () => {
   const dispatch = useDispatch()
   const cart = useSelector((state)=>state.cart)
  
-  const totalPrice = cart.reduce((total, item) => total + item.precio, 0).toFixed(2);
-  const totalItems = cart.length
+  const totalPrice = cart.reduce((total, item) => total + parseFloat(item.precio), 0).toFixed(2);
+  const totalItems = cart.length;
+  
  
 
   const handleRemove = (id)=>{
@@ -50,7 +51,7 @@ const Cart = () => {
     <div className="mb-2">
       <Link to={`/article/${item.id}`}>
         <img
-          src={item.foto[0]}
+          src={item.foto}
           alt="item photo"
           className='size-36 rounded-full border border-red-700 ml-5'
         />

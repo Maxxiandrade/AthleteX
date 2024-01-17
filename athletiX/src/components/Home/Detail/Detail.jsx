@@ -44,12 +44,12 @@ const Detail = () => {
     {item.map(item => {
       return (
         <div className="flex">
-          <img src={item.foto[0]} alt="item foto" className='size-96 rounded-full object-contain ' />
+          <img src={item.foto} alt="item foto" className='size-96 rounded-full object-contain ' />
           <div className="ml-5">
             <h1>{item.nombre}</h1>
             <h2>{item.marca}</h2>
             <br />
-            <p>{item.especificaciones}</p>
+            <p>{item.descripcion}</p>
             <br />
             <div className="flex items-center">
               <p className="ml-3">Price: ${item.precio}</p>
