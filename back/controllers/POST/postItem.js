@@ -16,7 +16,7 @@ const postItem = async (req, res) => {
         const db = getFirestore(); // Assuming your firebase-config is correctly set up
 
         const itemsRef = collection(db, 'items');
-        const newItemRef = await addDoc(itemsRef, {
+         await addDoc(itemsRef, {
             id,
             nombre,
             marca,
