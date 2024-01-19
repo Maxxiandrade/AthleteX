@@ -1,4 +1,4 @@
-import { ADD_ITEM, GET_ITEMS, SORT, FILTERS_BRAND, FILTERS_SPORT, ADD_TO_CART, REMOVE_FROM_CART, CLEAR_FILTERS, MOVE_PAGE } from "../action-types/action-types"
+import { GET_INFO, GET_ITEMS, SORT, FILTERS_BRAND, FILTERS_SPORT, ADD_TO_CART, REMOVE_FROM_CART, CLEAR_FILTERS, MOVE_PAGE } from "../action-types/action-types"
 import axios from 'axios';
 
 export const getItems = ()=>async(dispatch)=>{
@@ -70,6 +70,19 @@ export const addItem = (item)=>async()=>{
     try {
         console.log(item);
         await axios.post('http://localhost:3001/additem', item)
+    } catch (error) {
+        throw Error(error)
+    }
+}
+
+export const getUserInfo = (email)=>async(dispatch)=>{
+    try {
+        const {data} = await axios(`http://localhost:3001/user?email=${email}`)
+        dispatch({
+            type:GET_INFO,
+            payload: data
+        })
+        console.log(data);
     } catch (error) {
         throw Error(error)
     }

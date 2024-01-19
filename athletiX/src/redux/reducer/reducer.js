@@ -6,7 +6,8 @@ import {
   SORT,
   ADD_TO_CART,
   REMOVE_FROM_CART,
-  MOVE_PAGE
+  MOVE_PAGE,
+  GET_INFO
 } from "../action-types/action-types";
 
 
@@ -14,6 +15,7 @@ const initialState = {
   items: [],
   allItems: [],
   cart: [],
+  userInfo:[],
   currentPage: 1
 };
 
@@ -77,6 +79,11 @@ const reducer = (state = initialState, action) => {
         return{
           ...state,
           currentPage: action.payload
+        }
+      case GET_INFO:
+        return{
+          ...state,
+          userInfo: action.payload
         }
     default:
       return { ...state };
