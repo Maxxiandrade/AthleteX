@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import athletix from "../../assets/athletix logo.png";
 import style from "./Login.module.css";
 import axios from "axios";
+import { auth } from "../../firebase-config";
+import {signInWithEmailAndPassword } from "firebase/auth";
 
 
 const Login = () => {
@@ -26,20 +28,22 @@ const Login = () => {
   const login = async(e)=>{
     e.preventDefault()
     try {
-      console.log(user);
-      const url = `http://localhost:3001/user?email=${user.email}&password=${user.password}`;
-      const {data} = await axios.get(url)
-      navigate('/home')
+      const result = await signInWithEmailAndPassword(auth, user.email, user.password);
+      const isEmailVerified = result.user.emailVerified;
+      if (isEmailVerified) {
+        localStorage.setItem('uid', auth?.currentUser?.uid);
+        localStorage.setItem('email', result.user.email)
+        navigate('/home')
+      } else {
+        setErrors({
+          errors:'El correo no esta verificado'
+        })
+      }
+      console.log(result.user);
     } catch (error) {
-     if(error.response.data === '1'){
       setErrors({
-        errors: 'El correo electrónico no está verificado.'
+        errors:'Correo / Contraseña invalidos'
       })
-     }else{
-      setErrors({
-        errors:'Invalid Email/Password'
-      })
-     }
     }
   }
   return (

@@ -3,8 +3,8 @@ import Pagination from "./Pagination";
 import React from 'react';
 import { useState } from "react";
 import Card from "./Card";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
 import { movePage } from "../../redux/actions/actions";
 
 const Cards = () => {
