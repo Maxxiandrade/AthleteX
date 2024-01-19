@@ -7,7 +7,8 @@ import {
   ADD_TO_CART,
   REMOVE_FROM_CART,
   MOVE_PAGE,
-  GET_INFO
+  GET_INFO,
+  CLEAR_STATE
 } from "../action-types/action-types";
 
 
@@ -85,6 +86,11 @@ const reducer = (state = initialState, action) => {
           ...state,
           userInfo: action.payload
         }
+        case CLEAR_STATE:
+          return{
+            ...state,
+            userInfo: []
+          }
     default:
       return { ...state };
   }

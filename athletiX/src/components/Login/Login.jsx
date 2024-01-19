@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import athletix from "../../assets/athletix logo.png";
 import style from "./Login.module.css";
-import axios from "axios";
 import { auth } from "../../firebase-config";
 import {signInWithEmailAndPassword } from "firebase/auth";
 
@@ -24,6 +23,10 @@ const Login = () => {
       [name]:value
     })
   }
+
+  const isDisabled =
+  !user.email ||
+  !user.password;
 
   const login = async(e)=>{
     e.preventDefault()
@@ -85,14 +88,18 @@ const Login = () => {
   </div>
       </form>
       {errors && <p>{errors.errors}</p>}
-  <button className="bg-transparent px-10 py-2 rounded-2xl border border-black hover:scale-105 transition duration-200"
-  onClick={login}>
+  <button className={`bg-transparent px-10 py-2 rounded-2xl border border-black hover:scale-105 transition duration-200 ${
+              isDisabled
+                ? "hover:border-red-500 transition-transform duration-300"
+                : "hover:border-green-500 "
+            }`}
+  onClick={login} disabled={!user.email || !user.password}>
                 Log in
               </button>
   <br />
   <label htmlFor="">Don't have an account?</label>
   <Link to='/register'>
-  <button className="bg-transparent px-10 py-2 rounded-2xl border border-black hover:scale-105 transition duration-200">
+  <button className="bg-transparent px-10 py-2 rounded-2xl border border-black hover:scale-105 transition duration-200" >
                 Register
               </button>
   </Link>

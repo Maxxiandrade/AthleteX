@@ -8,3 +8,4 @@ export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 export const MOVE_PAGE = "MOVE_PAGE";
 export const ADD_ITEM = "ADD_ITEM";
 export const GET_INFO = "GET_INFO";
+export const CLEAR_STATE = "CLEAR_STATE";

@@ -1,4 +1,4 @@
-import { GET_INFO, GET_ITEMS, SORT, FILTERS_BRAND, FILTERS_SPORT, ADD_TO_CART, REMOVE_FROM_CART, CLEAR_FILTERS, MOVE_PAGE } from "../action-types/action-types"
+import { GET_INFO, GET_ITEMS, SORT, FILTERS_BRAND, FILTERS_SPORT, ADD_TO_CART, REMOVE_FROM_CART, CLEAR_FILTERS, MOVE_PAGE, CLEAR_STATE } from "../action-types/action-types"
 import axios from 'axios';
 
 export const getItems = ()=>async(dispatch)=>{
@@ -86,4 +86,10 @@ export const getUserInfo = (email)=>async(dispatch)=>{
     } catch (error) {
         throw Error(error)
     }
+}
+
+export const clearState = ()=>(dispatch)=>{
+    dispatch({
+        type:CLEAR_STATE
+    })
 }
