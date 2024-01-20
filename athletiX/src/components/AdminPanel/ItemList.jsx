@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../Home/Navbar/Navbar'
 import AddItem from './AddItem'
 
-const ItemList = () => {
+const AdminPanel = () => {
   return (
     <>
    <Navbar/>
@@ -11,4 +11,4 @@ const ItemList = () => {
   )
 }
 
-export default ItemList
+export default AdminPanel

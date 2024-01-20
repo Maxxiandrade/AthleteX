@@ -7,8 +7,8 @@ import Acount from "./components/Acount/Acount";
 import Login from "./components/Login/Login";
 import Register from "./components/Login/Register";
 import Pay from "./components/Cart/Pay";
-import ItemList from "./components/AdminPanel/ItemList";
 import Account from "./components/Acount/Acount";
+import AdminPanel from "./components/AdminPanel/ItemList";
 export default function App() {
   return (
     <>
@@ -21,7 +21,7 @@ export default function App() {
     <Route path='/login' element={<Login/>}/>
     <Route path='/register' element={<Register/>}/>
     <Route path='/pay' element={<Pay/>}/>
-    <Route path='/admin'element={<ItemList/>}></Route>
+    <Route path='/admin'element={<AdminPanel/>}></Route>
     <Route path='/profile/:id'element={<Account/>}></Route>
     </Routes>
     </>

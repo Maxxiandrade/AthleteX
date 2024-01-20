@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux"
 import {Cloudinary} from "@cloudinary/url-gen";
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import { HiChevronDown, HiChevronUp } from "react-icons/hi2";
 
 const AddItem = () => {
     const cld = new Cloudinary({cloud: {cloudName: 'dgunrvv9t'}});
@@ -78,12 +79,16 @@ const AddItem = () => {
    
    return (
     <>
-        <button onClick={()=>setShowAdd((value)=>!value)}>
-            Añadir item
-        </button>
+        <button
+      onClick={() => setShowAdd((value) => !value)}
+      className="bg-stone-300 border border-stone-400 mt-1 px-5 py-5 rounded-md ml-5 text-black hover:scale-110 transition duration-100 flex items-center"
+    >
+      <span>Añadir item</span>
+      {showAdd ? <HiChevronDown className="ml-2" /> : <HiChevronUp className="ml-2" />}
+    </button>
     
     {!showAdd &&(
-    <form action="">
+    <form className='ml-5 mt-2 bg-stone-300 border border-stone-400 backdrop-blur-lg rounded-xl w-96 p-6 flex flex-col justify-center items-center h-96' >
     <label htmlFor="">Nombre:
     <input 
      type="text"
@@ -91,6 +96,7 @@ const AddItem = () => {
      placeholder="Nombre del item"
      name="nombre"
      onChange={handleInputChange}
+     className="rounded-md border border-stone-400 mx-2 text-center"
      />
     </label>
     <br />
@@ -100,7 +106,8 @@ const AddItem = () => {
      value={item.marca}
      placeholder="Marca del item"
      name="marca"
-     onChange={handleInputChange} />
+     onChange={handleInputChange} 
+     className="rounded-md border border-stone-400 mx-2 text-center"/>
     </label>
     <br />
     <label htmlFor="">Precio: $
@@ -109,7 +116,8 @@ const AddItem = () => {
      value={item.precio}
      placeholder="Precio del item"
      name="precio"
-     onChange={handleInputChange}/>
+     onChange={handleInputChange}
+     className="rounded-md border border-stone-400 mx-2 text-center"/>
     </label>
     <br />
     <label htmlFor="">Deporte: 
@@ -118,7 +126,8 @@ const AddItem = () => {
      value={item.deporte}
      placeholder="Deporte del item"
      name="deporte"
-     onChange={handleInputChange}/>
+     onChange={handleInputChange}
+     className="rounded-md border border-stone-400 mx-2 text-center"/>
     </label>
     <br />
     <label htmlFor="">Descripcion: 
@@ -128,19 +137,21 @@ const AddItem = () => {
      placeholder="Descripcion del item"
      name="descripcion"
      onChange={handleInputChange}
+     className="rounded-md border border-stone-400 mx-2 text-center"
      />
     </label>
     <br />
-    <label htmlFor="">Foto: 
+    <label htmlFor="" >Foto: 
     <input 
      type="text"
      placeholder="Foto del item"
      name="foto"
      value={item.foto}
-     onChange={handleInputChange} />
+     onChange={handleInputChange} 
+     className="rounded-md border border-stone-400 mx-2 text-center"/>
     </label>
     <br />
-    <button onClick={handleClick}>Añadir</button>
+    <button onClick={handleClick} className="border border-stone-400 rounded-md px-5 py-1 hover:scale-105">Añadir</button>
     </form>)}
      </>
   ) 

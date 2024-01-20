@@ -28,6 +28,9 @@ const Dropdown = () => {
     if (localStorageUID) {
       setIsLogged(true);
     }
+    if(isAdmin){
+      setToggleAdmin(true)
+    }
   }, [uid]);
 
   const logout = () => {
@@ -87,7 +90,7 @@ const Dropdown = () => {
             </Link>
           ) : (
             <p
-              className="cursor-pointer  hover:scale-110 duration-100 font-medium"
+              className="cursor-pointer  hover:scale-110 duration-100 font-medium hover:text-red-700"
               onClick={logout}
             >
               Log out
@@ -102,7 +105,7 @@ const Dropdown = () => {
               Contact
             </p>
           </Link>
-          {isAdmin ? (
+          {toggleAdmin && isLogged ? (
             <>
               <hr
                 className="my-4 border-gray-600"
