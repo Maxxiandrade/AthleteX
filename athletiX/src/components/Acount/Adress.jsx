@@ -1,8 +1,11 @@
+import axios from "axios";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
 const Adress = () => {
   const userInfo = useSelector((state) => state.userInfo);
+  const email = localStorage.getItem('email')
+  console.log(email);
   localStorage.setItem('info', userInfo)
   const { entrega } = userInfo;
   const [editInfo, setEditInfo] = useState(false)
@@ -14,15 +17,30 @@ const Adress = () => {
 
    const toggleEdit = ()=>{
     setEditInfo(!editInfo)
+    updateShippingInfo()
   }
 
-  const changeInfo = ({target})=>{
+  const changeInfo = async({target})=>{
     const {name, value} = target
     setInfo({
       ...info,
       [name]: value
     })
   }
+
+  const updateShippingInfo = async () => {
+    try {
+      await axios.put('http://localhost:3001/shipping', {
+        email,
+        state: info.state,
+        city: info.city,
+        adress: info.adress,
+      });
+      console.log('Información de envío actualizada correctamente');
+    } catch (error) {
+      console.error('Error al actualizar la información de envío', error);
+    }
+  };
   return (
     <>
       {entrega ? (
@@ -37,6 +55,7 @@ const Adress = () => {
               <b className="text-sm underline hover:text-blue-700 cursor-pointer" onClick={toggleEdit}>Edit info</b>
             </div> : 
             <>
+            <b className="text-red-700">Asegurate de poner la direccion correcta. En caso de extravío Athletix no toma responsabilidad</b>
            <form action="" className="ml-1" onSubmit={changeInfo}>
             <label htmlFor="" className="text-lg">State: <input type="text" name="state" className="rounded-md border border-stone-400 my-1" value={info.state} onChange={changeInfo}/></label>
             <br />

@@ -8,7 +8,7 @@ import Login from "./components/Login/Login";
 import Register from "./components/Login/Register";
 import Pay from "./components/Cart/Pay";
 import Account from "./components/Acount/Acount";
-import AdminPanel from "./components/AdminPanel/ItemList";
+import AdminPanel from "./components/AdminPanel/AdminPanel";
 export default function App() {
   return (
     <>
