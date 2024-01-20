@@ -16,7 +16,8 @@ const getMyUser = async (req, res) => {
         const userData = querySnapshot.docs[0].data();
         const userInfo = {
             compras: userData?.compras,
-            entrega: userData?.Entrega
+            entrega: userData?.Entrega,
+            isAdmin: userData?.isAdmin
         };
 
         res.status(200).json(userInfo);

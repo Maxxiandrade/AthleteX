@@ -5,11 +5,17 @@ const postItem = require('../controllers/POST/postItem');
 const getItems = require('../controllers/GET/getItems');
 const postUser = require('../controllers/POST/postUser');
 const getMyUser = require('../controllers/GET/getMyUser');
+const putShipping = require('../controllers/PUT/putUser');
+const putItem = require('../controllers/PUT/putItem');
 
 router.get('/items', getItems)
 router.get('/user', getMyUser)
 
 router.post('/additem', postItem)
 router.post('/register', postUser)
+
+router.put('/shipping', putShipping)
+router.put('/price', putItem)
+
 
 module.exports=router;
