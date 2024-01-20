@@ -20,7 +20,6 @@ const Dropdown = () => {
   const localStorageUID = localStorage.getItem("uid");
   const user = useSelector((state) => state.userInfo);
   const isAdmin = user.isAdmin;
-  console.log(user);
   useEffect(() => {
     if (!localStorageUID) {
       signOut(auth);

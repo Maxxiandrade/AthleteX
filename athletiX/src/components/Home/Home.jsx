@@ -13,7 +13,6 @@ const Home = () => {
     const email = localStorage.getItem('email')
       if(email){
         dispatch(getUserInfo(email))
-        console.log(email);
       }
  
   return (

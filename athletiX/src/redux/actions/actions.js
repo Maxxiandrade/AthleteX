@@ -82,7 +82,6 @@ export const getUserInfo = (email)=>async(dispatch)=>{
             type:GET_INFO,
             payload: data
         })
-        console.log(data);
     } catch (error) {
         throw Error(error)
     }

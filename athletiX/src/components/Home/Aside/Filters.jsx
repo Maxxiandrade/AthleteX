@@ -95,7 +95,7 @@ const Filters = () => {
       </label>
       <br />
       <label className='cursor-pointer'>
-        <input type="radio" value="basketball" onChange={handleSportFilter} checked={selectedSport === 'basketball'}/> Basketball
+        <input type="radio" value="basket" onChange={handleSportFilter} checked={selectedSport === 'basket'}/> Basketball
       </label>
       <br />
       <label className='cursor-pointer'>
@@ -103,7 +103,7 @@ const Filters = () => {
       </label>
       <br />
       <label className='cursor-pointer'>
-        <input type="radio" value="Gim" onChange={handleSportFilter} checked={selectedSport === 'Gim'}/> Gim
+        <input type="radio" value="Gym" onChange={handleSportFilter} checked={selectedSport === 'Gym'}/> Gym
       </label>
       <br />
       <label className='cursor-pointer'>
