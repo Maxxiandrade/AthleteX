@@ -96,6 +96,32 @@ const Detail = () => {
         }
       });
     };
+
+    const deleteItem = async () => {
+      try {
+        Swal.fire({
+          title: 'You are about to delete this item. Are you sure?',
+          showConfirmButton: true,
+          confirmButtonText: 'Yes, I\'m sure',
+          showDenyButton: true,
+          denyButtonText: 'Cancel'
+        }).then(async(result)=>{
+        if (result.isConfirmed) {
+          await axios.delete('http://localhost:3001/deleteitem', { data: { id } });
+          Swal.fire({
+            title:'Item deleted successfully'
+          }
+         )
+         navigate('/admin')} else if (result.isDenied) {
+          console.log('Deletion canceled');
+        }})
+
+      } catch (error) {
+
+      }
+    };
+    
+    
   return (
     <>
   <Navbar/>
@@ -120,7 +146,7 @@ const Detail = () => {
               {togglePrice ? <img src={done} name='confirm' className='h-8 cursor-pointer hover:scale-110' onClick={handleDone}/> :
                <img src={pen} alt="" className='h-8 cursor-pointer hover:scale-110' onClick={()=>setTogglePrice(!togglePrice)}/>}
               <TbShoppingCartX className='cursor-pointer hover:scale-110' onClick={()=>outOfStock()}/>
-              <TbEraserOff className='cursor-pointer hover:scale-110'/>
+              <TbEraserOff className='cursor-pointer hover:scale-110' onClick={()=>deleteItem()}/>
               </>}
               
             </div>
