@@ -1,15 +1,58 @@
-import React from 'react'
-import Navbar from '../Home/Navbar/Navbar'
+import React from 'react';
+import Navbar from '../Home/Navbar/Navbar';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
 
-const Pay = () => {
+const stripePromise = loadStripe("pk_test_51Oc3uyJpb4pFNcZPWLhILwnrgkHquNnCVarPZopJMuZW1WyKfpxhXOq2Ca2t6l1bt9N5CarOuFHPEG34z4K1YXHc00MWez6LBY");
+
+const CheckoutForm = (price) => {
+  const cart = useSelector((state) => state.cart);
+
+  const totalPrice = cart
+    .reduce((total, item) => total + parseFloat(item.precio), 0)
+    .toFixed(2);
+
+  const stripe = useStripe();
+  const elements = useElements();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: 'card',
+      card: elements.getElement(CardElement)
+    });
+
+    if (!error) {
+      const {id} = paymentMethod
+      const {data} = await axios.post('http://localhost:3001/checkout', {
+        id,
+        amount: totalPrice
+      })
+      console.log(data);
+      console.log(paymentMethod);
+    }
+  };
+
+  return (
+    <form action="" onSubmit={handleSubmit}>
+      {totalPrice}
+      <CardElement />
+      <button type="submit">Pay</button>
+    </form>
+  );
+};
+
+const Pay = (price) => {
   return (
     <>
-    <Navbar/>
-    <div className='text-4xl flex justify-center items-center'>
-        <h1>Pasarela de pago</h1>
-    </div>
+      <Navbar />
+      <Elements stripe={stripePromise}>
+        <CheckoutForm price={price}/>
+      </Elements>
     </>
-  )
-}
+  );
+};
 
-export default Pay
+export default Pay;
