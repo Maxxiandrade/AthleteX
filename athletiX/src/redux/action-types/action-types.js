@@ -9,3 +9,4 @@ export const MOVE_PAGE = "MOVE_PAGE";
 export const ADD_ITEM = "ADD_ITEM";
 export const GET_INFO = "GET_INFO";
 export const CLEAR_STATE = "CLEAR_STATE";
+export const GET_BY_NAME = "GET_BY_NAME";

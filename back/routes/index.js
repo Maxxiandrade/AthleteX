@@ -8,9 +8,13 @@ const getMyUser = require('../controllers/GET/getMyUser');
 const putShipping = require('../controllers/PUT/putUser');
 const putItem = require('../controllers/PUT/putItem');
 const deleteItem = require('../controllers/DELETE/deleteItem');
+const getItemByName = require('../controllers/GET/getItemByName');
+const getCompras = require('../controllers/GET/getCompras');
 
 router.get('/items', getItems)
 router.get('/user', getMyUser)
+router.get('/getbyname', getItemByName)
+router.get('/pucharses', getCompras)
 
 router.post('/additem', postItem)
 router.post('/register', postUser)

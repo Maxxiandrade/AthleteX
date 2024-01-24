@@ -1,4 +1,4 @@
-import { GET_INFO, GET_ITEMS, SORT, FILTERS_BRAND, FILTERS_SPORT, ADD_TO_CART, REMOVE_FROM_CART, CLEAR_FILTERS, MOVE_PAGE, CLEAR_STATE } from "../action-types/action-types"
+import { GET_INFO, GET_ITEMS, SORT, FILTERS_BRAND, FILTERS_SPORT, ADD_TO_CART, REMOVE_FROM_CART, CLEAR_FILTERS, MOVE_PAGE, CLEAR_STATE, GET_BY_NAME } from "../action-types/action-types"
 import axios from 'axios';
 
 export const getItems = ()=>async(dispatch)=>{
@@ -91,4 +91,17 @@ export const clearState = ()=>(dispatch)=>{
     dispatch({
         type:CLEAR_STATE
     })
+}
+
+export const getByName=(string)=>async(dispatch)=>{
+    try {
+        const {data} = await axios.get(`http://localhost:3001/getbyname?string=${string}`)
+        dispatch({
+            type:GET_BY_NAME,
+            payload: data
+        })
+        
+    } catch (error) {
+        throw Error(error)
+    }
 }

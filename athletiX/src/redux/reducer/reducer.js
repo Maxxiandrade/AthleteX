@@ -8,7 +8,8 @@ import {
   REMOVE_FROM_CART,
   MOVE_PAGE,
   GET_INFO,
-  CLEAR_STATE
+  CLEAR_STATE,
+  GET_BY_NAME
 } from "../action-types/action-types";
 
 
@@ -90,6 +91,11 @@ const reducer = (state = initialState, action) => {
           return{
             ...state,
             userInfo: []
+          }
+        case GET_BY_NAME:
+          return{
+            ...state,
+            items: action.payload
           }
     default:
       return { ...state };
