@@ -1,5 +1,5 @@
 const Stripe = require('stripe');
-const { updateDoc, doc, getDoc, setDoc } = require('firebase/firestore');
+const { updateDoc, doc, getDoc } = require('firebase/firestore');
 const { db } = require('../../firebase-config');
 
 const postCheckout = async (req, res) => {
@@ -30,8 +30,8 @@ const postCheckout = async (req, res) => {
     // Combine existingCompras with the new items from the cart
     const updatedCompras = [...existingCompras, ...cart.map(compra => ({ nombre: compra.nombre, foto: compra.foto }))];
 
-    // Update the document with the accumulated compras
-    await setDoc(usersRef, { compras: updatedCompras });
+    // Update only the compras field without affecting the rest of the document
+    await updateDoc(usersRef, { compras: updatedCompras });
 
     res.status(200).json('recibido');
   } catch (error) {
@@ -41,3 +41,4 @@ const postCheckout = async (req, res) => {
 };
 
 module.exports = postCheckout;
+
