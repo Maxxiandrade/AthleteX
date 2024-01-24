@@ -3,13 +3,9 @@ const { getFirestore, collection, query, where, getDocs } = require('firebase/fi
 
 const getItemByName = async (req, res) => {
     try {
-        const {string} = req.body
-        function capitalizeFirstLetter(str) {
-            return str.charAt(0).toUpperCase() + str.slice(1);
-        }
-        
+        const {string} = req.query
         const itemsCollectionRef = collection(db, 'items');
-        const q = query(itemsCollectionRef, where('nombre', '>=', capitalizeFirstLetter(string)))
+        const q = query(itemsCollectionRef, where('nombre', '>=', string))
         const querySnapshot = await getDocs(q)
         const usersData = querySnapshot.docs.map(doc => {
             const userData = doc.data();

@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Searchbar from "../Home/Aside/Searchbar";
 
 const ItemList = () => {
 
@@ -9,7 +10,7 @@ const ItemList = () => {
   return (
     <>
     <div className="flex justify-center ">
-    <input type="text" className=' md:block hidden text-center border border-zinc-200 rounded-md h-9' placeholder='Search an item'/> 
+    <Searchbar/>
     </div>
     <div className="flex flex-wrap">
       {itemList.map((item) => (

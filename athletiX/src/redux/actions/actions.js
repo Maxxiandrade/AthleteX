@@ -95,7 +95,9 @@ export const clearState = ()=>(dispatch)=>{
 
 export const getByName=(string)=>async(dispatch)=>{
     try {
+        console.log(string);
         const {data} = await axios.get(`http://localhost:3001/getbyname?string=${string}`)
+        console.log(data);
         dispatch({
             type:GET_BY_NAME,
             payload: data
