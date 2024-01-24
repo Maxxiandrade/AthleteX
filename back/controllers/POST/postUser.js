@@ -4,7 +4,7 @@ const {doc, collection, addDoc, setDoc, getDoc} = require('firebase/firestore')
 
 const postUser = async (req, res) => {
     try {
-        const { email, password } = req.body;
+        const { email, password, id } = req.body;
         const usersCollection = collection(db, 'users') 
         const userDocRef = doc(usersCollection, email);
         const existingUserDoc = await getDoc(userDocRef);
@@ -12,6 +12,7 @@ const postUser = async (req, res) => {
             return res.status(400).json({ error: 'El usuario ya existe' });
         }
         await setDoc(userDocRef,{
+            id,
             email
         })
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);

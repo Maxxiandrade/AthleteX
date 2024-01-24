@@ -5,6 +5,7 @@ import athletix from "../../assets/athletix logo.png";
 import Swal from "sweetalert2";
 import registerValidations from "./registerValidations";
 import axios from "axios";
+import {v4 as uuid} from 'uuid'
 
 const Register = () => {
   const navigate = useNavigate();
@@ -24,6 +25,7 @@ const Register = () => {
     const { name, value } = target;
     setCredentials({
       ...credentials,
+      id: uuid(),
       [name]: value,
     });
   };
