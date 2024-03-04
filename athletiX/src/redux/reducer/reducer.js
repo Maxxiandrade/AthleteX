@@ -9,7 +9,8 @@ import {
   MOVE_PAGE,
   GET_INFO,
   CLEAR_STATE,
-  GET_BY_NAME
+  GET_BY_NAME,
+  GET_PUCHARSES
 } from "../action-types/action-types";
 
 
@@ -18,6 +19,7 @@ const initialState = {
   allItems: [],
   cart: [],
   userInfo:[],
+  pucharses: [],
   currentPage: 1
 };
 
@@ -96,6 +98,11 @@ const reducer = (state = initialState, action) => {
           return{
             ...state,
             items: action.payload
+          }
+        case GET_PUCHARSES:
+          return{
+            ...state,
+            pucharses: action.payload
           }
     default:
       return { ...state };
