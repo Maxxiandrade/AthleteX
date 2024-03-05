@@ -11,7 +11,7 @@ const Pagination = ({ itemsPerPage, items, paginado, currentPage }) => {
           <ul className="flex">
             {pageNumbers.map(number => (
               <>
-              <li key={number} className="list-none m-3 bg-indigo-300 cursor-pointer rounded-full w-6 text-center h5 font-medium">
+              <li key={number} className="list-none m-3 bg-indigo-600 cursor-pointer rounded-full w-6 text-center h5 font-medium">
                 <a onClick={() => paginado(number)}>{number}</a>
               </li>
               </>

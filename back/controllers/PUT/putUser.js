@@ -7,9 +7,9 @@ const putShipping = async(req,res)=>{
         const usersRef =  doc(db, 'users', email);
         await updateDoc(usersRef, {
             Entrega:{
-                Ciudad: city,
-                Direccion: adress,
-                Provincia: state
+                ciudad: city,
+                direccion: adress,
+                provincia: state
             }
           });
        res.status(200).json("Ok")

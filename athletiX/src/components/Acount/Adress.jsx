@@ -10,9 +10,9 @@ const Adress = () => {
   const { entrega } = userInfo;
   const [editInfo, setEditInfo] = useState(false)
   const [info, setInfo] = useState({
-    state:entrega?.Provincia,
-    city:entrega?.Ciudad,
-    adress:entrega?.Direccion
+    state:entrega?.provincia,
+    city:entrega?.ciudad,
+    adress:entrega?.direccion
   })
 
    const toggleEdit = ()=>{
