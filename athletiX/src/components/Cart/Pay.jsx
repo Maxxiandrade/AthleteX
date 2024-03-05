@@ -36,22 +36,41 @@ const CheckoutForm = (price) => {
     }
   };
 
+  const cardElementOptions = {
+    style: {
+      base: {
+        fontSize: '16px',
+        color: '#424770',
+        '::placeholder': {
+          color: '#aab7c4',
+        },
+      },
+      invalid: {
+        color: '#9e2146',
+      },
+    },
+  };
+
   return (
-    <form action="" onSubmit={handleSubmit}>
-      {totalPrice}
-      <CardElement />
-      <button type="submit">Pay</button>
+    <form onSubmit={handleSubmit} className="">
+      <div className="bg-indigo-400 p-8 rounded-lg w-96">
+        {totalPrice}
+        <CardElement className="mt-4" />
+        <button type="submit" className="bg-indigo-900 rounded-md px-8 py-3 mt-4 text-white text-lg">Pagar</button>
+      </div>
     </form>
   );
 };
 
-const Pay = (price) => {
+const Pay = () => {
   return (
     <>
       <Navbar />
-      <Elements stripe={stripePromise}>
-        <CheckoutForm price={price}/>
-      </Elements>
+      <div className="grid place-items-center ">
+        <Elements stripe={stripePromise}>
+          <CheckoutForm />
+        </Elements>
+      </div>
     </>
   );
 };
