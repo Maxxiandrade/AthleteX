@@ -1,4 +1,4 @@
-import { GET_INFO, GET_ITEMS, SORT, FILTERS_BRAND, FILTERS_SPORT, ADD_TO_CART, REMOVE_FROM_CART, CLEAR_FILTERS, MOVE_PAGE, CLEAR_STATE, GET_BY_NAME, GET_PUCHARSES } from "../action-types/action-types"
+import { GET_INFO, GET_ITEMS, SORT, FILTERS_BRAND, FILTERS_SPORT, ADD_TO_CART, REMOVE_FROM_CART, CLEAR_FILTERS, MOVE_PAGE, CLEAR_STATE, GET_BY_NAME, GET_PUCHARSES, CLEAR_CART } from "../action-types/action-types"
 import axios from 'axios';
 
 export const getItems = ()=>async(dispatch)=>{
@@ -114,6 +114,17 @@ export const getPucharses=()=>async(dispatch)=>{
         dispatch({
             type: GET_PUCHARSES,
             payload: data
+        })
+    } catch (error) {
+        throw Error(error)
+    }
+}
+
+export const clearCart = ()=>async(dispatch)=>{
+    try {
+        dispatch({
+            type:CLEAR_CART,
+            payload:[]
         })
     } catch (error) {
         throw Error(error)

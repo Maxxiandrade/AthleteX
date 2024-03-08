@@ -11,3 +11,4 @@ export const GET_INFO = "GET_INFO";
 export const CLEAR_STATE = "CLEAR_STATE";
 export const GET_BY_NAME = "GET_BY_NAME";
 export const GET_PUCHARSES = "GET_PUCHARSES";
+export const CLEAR_CART = "CLEAR_CART";

@@ -10,7 +10,8 @@ import {
   GET_INFO,
   CLEAR_STATE,
   GET_BY_NAME,
-  GET_PUCHARSES
+  GET_PUCHARSES,
+  CLEAR_CART
 } from "../action-types/action-types";
 
 
@@ -103,6 +104,11 @@ const reducer = (state = initialState, action) => {
           return{
             ...state,
             pucharses: action.payload
+          }
+        case CLEAR_CART:
+          return{
+            ...state,
+            cart: action.payload
           }
     default:
       return { ...state };
