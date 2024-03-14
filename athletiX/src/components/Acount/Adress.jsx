@@ -49,10 +49,10 @@ const Adress = () => {
           {entrega && (
             <>
             {!editInfo ? <div className="mx-2">
-             <p className="text-lg my-2">State: {info.state}</p>
-              <p className="text-lg  my-2">City: {info.city}</p>
-              <p className="text-lg  my-2">Adress: {info.adress}</p>
-              <b className="text-sm underline hover:text-blue-700 cursor-pointer" onClick={toggleEdit}>Edit info</b>
+             <p className="text-lg my-2">Provincia: {info.state}</p>
+              <p className="text-lg  my-2">Ciudad: {info.city}</p>
+              <p className="text-lg  my-2">Dirección: {info.adress}</p>
+              <b className="text-sm underline hover:text-blue-700 cursor-pointer" onClick={toggleEdit}>Editar info</b>
             </div> : 
             <>
             <b className="text-red-700">Asegurate de poner la direccion correcta. En caso de extravío Athletix no toma responsabilidad</b>
@@ -63,7 +63,7 @@ const Adress = () => {
             <br />
             <label htmlFor="" className="text-lg">Adress: <input type="text" name="adress" className="rounded-md border border-stone-400 my-1" value={info.adress} onChange={changeInfo}/></label>
             <br />
-            <b className="text-sm underline hover:text-blue-700 cursor-pointer" onClick={toggleEdit}>Finish</b>
+            <b className="text-sm underline hover:text-blue-700 cursor-pointer" onClick={toggleEdit}>Listo</b>
             </form>
             </>}  
             </>
@@ -72,9 +72,9 @@ const Adress = () => {
       ) : (
         <>
         {!editInfo ? <div className="mx-2">
-             <p className="text-lg my-2">State: {info.state}</p>
-              <p className="text-lg  my-2">City: {info.city}</p>
-              <p className="text-lg  my-2">Adress: {info.adress}</p>
+             <p className="text-lg my-2">Provincia: {info.state}</p>
+              <p className="text-lg  my-2">Ciudad: {info.city}</p>
+              <p className="text-lg  my-2">Dirección: {info.adress}</p>
               <b className="text-sm underline hover:text-blue-700 cursor-pointer" onClick={toggleEdit}>Edit info</b>
             </div> : 
             <>
@@ -86,7 +86,7 @@ const Adress = () => {
             <br />
             <label htmlFor="" className="text-lg">Adress: <input type="text" name="adress" className="rounded-md border border-stone-400 my-1" value={info.adress} onChange={changeInfo}/></label>
             <br />
-            <b className="text-sm underline hover:text-blue-700 cursor-pointer" onClick={toggleEdit}>Finish</b>
+            <b className="text-sm underline hover:text-blue-700 cursor-pointer" onClick={toggleEdit}>Listo</b>
             </form>
             </>}  
         </>

@@ -36,7 +36,9 @@ const Login = () => {
       if (isEmailVerified) {
         localStorage.setItem('uid', auth?.currentUser?.uid);
         localStorage.setItem('email', result.user.email)
-        navigate('/home')
+        navigate('/home'),{
+          replace: true
+        }
       } else {
         setErrors({
           errors:'El correo no esta verificado'

@@ -6,6 +6,7 @@ import {Cloudinary} from "@cloudinary/url-gen";
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import { HiChevronDown, HiChevronUp } from "react-icons/hi2";
+import UploadWidget from "./UploadWidget.jsx";
 
 const AddItem = () => {
     const cld = new Cloudinary({cloud: {cloudName: 'dgunrvv9t'}});
@@ -142,13 +143,8 @@ const AddItem = () => {
     </label>
     <br />
     <label htmlFor="" >Foto: 
-    <input 
-     type="text"
-     placeholder="Foto del item"
-     name="foto"
-     value={item.foto}
-     onChange={handleInputChange} 
-     className="rounded-md border border-stone-400 mx-2 text-center"/>
+    <UploadWidget/>
+    
     </label>
     <br />
     <button onClick={handleClick} className="border border-stone-400 rounded-md px-5 py-1 hover:scale-105">Añadir</button>

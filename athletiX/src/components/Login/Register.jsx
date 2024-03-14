@@ -43,7 +43,9 @@ const Register = () => {
     });
     await axios.post("http://localhost:3001/register", credentials);
     setIsRegistered(true)
-    navigate('/login')
+    navigate('/login'),{
+      replace: true
+    }
   };
 
   useEffect(() => {
