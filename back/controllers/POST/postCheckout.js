@@ -18,7 +18,7 @@ const postCheckout = async (req, res) => {
       description: itemNames,
       payment_method: id,
       confirm: true,
-      return_url: 'https://localhost:3001/checkout/success',
+      return_url:` ${API_URL}/checkout/success`,
     });
 
     const usersRef = doc(db, 'users', email);

@@ -11,6 +11,7 @@ import { TbShoppingCartX, TbEraserOff } from "react-icons/tb";
 import pen from "../../../assets/pen.svg"
 import axios from 'axios'
 import done from "../../../assets/done.svg"
+import { API_URL } from '../../Acount/Adress'
 
 const Detail = () => {
   const navigate = useNavigate()
@@ -56,7 +57,7 @@ const Detail = () => {
     
     const updatePrice = async (id, newPrice) => {
       try {
-        await axios.put('http://localhost:3001/price', {
+        await axios.put(`${API_URL}/price`, {
           id,
           price: newPrice
         });
@@ -107,7 +108,7 @@ const Detail = () => {
           denyButtonText: 'Cancel'
         }).then(async(result)=>{
         if (result.isConfirmed) {
-          await axios.delete('http://localhost:3001/deleteitem', { data: { id } });
+          await axios.delete(`${API_URL}/deleteitem`, { data: { id } });
           Swal.fire({
             title:'Item deleted successfully'
           }

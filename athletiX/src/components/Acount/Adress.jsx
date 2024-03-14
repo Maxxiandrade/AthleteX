@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+export const API_URL = import.meta.env.MODE === 'development' ? 'http://localhost:3001' : 'https://athlete-x-back.vercel.app';
 
 const Adress = () => {
   const userInfo = useSelector((state) => state.userInfo);
@@ -30,7 +31,7 @@ const Adress = () => {
 
   const updateShippingInfo = async () => {
     try {
-      await axios.put('http://localhost:3001/shipping', {
+      await axios.put(`${API_URL}/shipping`, {
         email,
         state: info.state,
         city: info.city,

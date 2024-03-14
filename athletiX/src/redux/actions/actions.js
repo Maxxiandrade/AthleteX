@@ -1,9 +1,10 @@
+import { API_URL } from "../../components/Acount/Adress";
 import { GET_INFO, GET_ITEMS, SORT, FILTERS_BRAND, FILTERS_SPORT, ADD_TO_CART, REMOVE_FROM_CART, CLEAR_FILTERS, MOVE_PAGE, CLEAR_STATE, GET_BY_NAME, GET_PUCHARSES, CLEAR_CART } from "../action-types/action-types"
 import axios from 'axios';
 
 export const getItems = ()=>async(dispatch)=>{
     try {
-       const {data} = await axios.get('http://localhost:3001/items')
+       const {data} = await axios.get(`${API_URL}/items`)
         dispatch({type: GET_ITEMS, payload: data})
     } catch (error) {
         throw Error(error)
@@ -69,7 +70,7 @@ export const movePage = (pagenumber)=>(dispatch)=>{
 export const addItem = (item)=>async()=>{
     try {
         console.log(item);
-        await axios.post('http://localhost:3001/additem', item)
+        await axios.post(`${API_URL}/additem`, item)
     } catch (error) {
         throw Error(error)
     }
@@ -77,7 +78,7 @@ export const addItem = (item)=>async()=>{
 
 export const getUserInfo = (email)=>async(dispatch)=>{
     try {
-        const {data} = await axios(`http://localhost:3001/user?email=${email}`)
+        const {data} = await axios(`${API_URL}/user?email=${email}`)
         dispatch({
             type:GET_INFO,
             payload: data
@@ -96,7 +97,7 @@ export const clearState = ()=>(dispatch)=>{
 export const getByName=(string)=>async(dispatch)=>{
     try {
         console.log(string);
-        const {data} = await axios.get(`http://localhost:3001/getbyname?string=${string}`)
+        const {data} = await axios.get(`${API_URL}/getbyname?string=${string}`)
         console.log(data);
         dispatch({
             type:GET_BY_NAME,
@@ -110,7 +111,7 @@ export const getByName=(string)=>async(dispatch)=>{
 
 export const getPucharses=()=>async(dispatch)=>{
     try {
-        const {data} = await axios.get(`http://localhost:3001/allpucharses`)
+        const {data} = await axios.get(`${API_URL}/allpucharses`)
         dispatch({
             type: GET_PUCHARSES,
             payload: data

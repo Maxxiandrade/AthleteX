@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import registerValidations from "./registerValidations";
 import axios from "axios";
 import {v4 as uuid} from 'uuid'
+import { API_URL } from "../Acount/Adress";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -41,7 +42,7 @@ const Register = () => {
       title: "A confirmation email has been sent!",
       text: "Please verify your inbox and spam folder.",
     });
-    await axios.post("http://localhost:3001/register", credentials);
+    await axios.post(`${API_URL}/register`, credentials);
     setIsRegistered(true)
     navigate('/login'),{
       replace: true
