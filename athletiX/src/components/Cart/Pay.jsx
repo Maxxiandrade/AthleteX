@@ -8,6 +8,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { clearCart } from '../../redux/actions/actions';
 import { useDispatch } from 'react-redux';
+import { API_URL } from '../Acount/Adress';
 const stripePromise = loadStripe("pk_test_51Oc3uyJpb4pFNcZPWLhILwnrgkHquNnCVarPZopJMuZW1WyKfpxhXOq2Ca2t6l1bt9N5CarOuFHPEG34z4K1YXHc00MWez6LBY");
 
 const CheckoutForm = (price) => {
@@ -39,7 +40,7 @@ const CheckoutForm = (price) => {
         }
       });
 
-      axios.post('http://localhost:3001/checkout', {
+      axios.post(`${API_URL}/checkout`, {
         email,
         id,
         amount: totalPrice,
